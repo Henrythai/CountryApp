@@ -6,12 +6,11 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.countryapp.Model.Country
-import com.example.countryapp.Model.CountryService
+import com.example.countryapp.App
 import com.example.countryapp.R
 import com.example.countryapp.ViewModel.MainActivityViewModel
 import com.example.countryapp.ViewModel.MainActivityViewModelFactory
-import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
+
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -21,13 +20,14 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var mainActivityViewModelFactory: MainActivityViewModelFactory
+
     private val countryAdapter = CountryAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        mainActivityViewModelFactory = MainActivityViewModelFactory(CountryService())
+        App.component.inject(this)
 
         viewmodel = ViewModelProvider(
             this,
