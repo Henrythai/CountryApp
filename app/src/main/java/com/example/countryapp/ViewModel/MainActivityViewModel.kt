@@ -35,7 +35,7 @@ class MainActivityViewModel(val countryService: CountryService) : ViewModel() {
                 },
                     { t ->
                         loading.value = false
-                        loadError.value = false
+                        loadError.value = true
                     })
         )
 

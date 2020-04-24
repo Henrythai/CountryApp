@@ -15,7 +15,7 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun provideCountryService(): CountriesApi {
+    fun provideCountryApi(): CountriesApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
